@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Películas de {{ categoria|capfirst }}{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 text-capitalize">Género: <span class="text-primary">{{ categoria }}</span></h2>
+
+<div class="mb-4">
+    <label class="form-label fw-bold">Elegir otro género</label>
+    <div class="d-flex flex-wrap gap-2">
+        {% for g in generos %}
+            <a href="{% url 'home:ver_genero' g.id %}" class="btn {% if categoria == g.id %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                {{ g.nombre }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="row">
+    {% if peliculas %}
+        {% for p in peliculas %}
+            <div class="col-md-3 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="{% static p.imagen %}" class="card-img-top" alt="{{ p.nombre }}" style="height: 280px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ p.nombre }}</h5>
+                        <p class="card-text text-muted">Año: {{ p.anio }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="col-12">
+            <p class="alert alert-danger">No hay películas para esta categoría.</p>
+        </div>
+    {% endif %}
+</div>
+
+<a href="{% url 'home:home' %}" class="btn btn-secondary mt-3">Volver al Inicio</a>
+{% endblock %}
