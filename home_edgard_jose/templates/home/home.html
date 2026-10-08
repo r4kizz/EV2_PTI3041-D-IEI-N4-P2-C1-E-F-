@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Géneros{% endblock %}
+
+{% block content %}
+<h1 class="text-center my-4">Géneros Cinematográficos</h1>
+
+<div class="row">
+    {% if generos %}
+        {% for g in generos %}
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary">{{ g.nombre }}</h3>
+                        <p class="card-text">{{ g.descripcion }}</p>
+                        <a href="{% url 'home:ver_genero' g.id %}" class="btn btn-primary">Ver Películas</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="col-12">
+            <p class="alert alert-warning">No hay géneros disponibles.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
