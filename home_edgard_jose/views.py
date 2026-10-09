@@ -2,8 +2,18 @@ from django.shortcuts import render
 
 
 GENEROS = [
-    {'id': 'comedia', 'nombre': 'Comedia', 'descripcion': 'Películas con mucha risa y situaciones locas'},
-    {'id': 'drama', 'nombre': 'Drama', 'descripcion': 'Películas con intensas emociones y conflictos'},
+    {
+        'id': 'comedia',
+        'nombre': 'Comedia',
+        'descripcion': 'Películas con mucha risa y situaciones locas',
+        'imagen': 'images/general/comedia.png',
+    },
+    {
+        'id': 'drama',
+        'nombre': 'Drama',
+        'descripcion': 'Películas con intensas emociones y conflictos',
+        'imagen': 'images/general/drama.png',
+    },
 ]
 
 

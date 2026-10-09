@@ -1,5 +1,12 @@
 body {
-    background: #111111;
+    background-color: #111111;
+    background-image:
+        linear-gradient(rgba(17, 17, 17, 0.72), rgba(17, 17, 17, 0.72)),
+        url("../images/general/Sala_de_cine.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color: #f3f3f3;
 }
 
@@ -129,4 +136,29 @@ footer {
     background: #0f0f0f;
     padding: 0.25rem;
     display: block;
+}
+
+.genre-card {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.genre-image {
+    display: block;
+    width: 100%;
+    height: 65%;
+    flex: 0 0 65%;
+    padding: 0.5rem;
+    object-fit: contain;
+    background: #0f0f0f;
+}
+
+.genre-card .card-body {
+    padding: 0.65rem;
+}
+
+.genre-button {
+    display: block;
+    width: 100%;
+    border-radius: 0;
 }

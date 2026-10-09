@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Inicio - Géneros{% endblock %}
 
@@ -9,12 +10,13 @@
     {% if generos %}
         {% for g in generos %}
             <div class="col-md-6 mb-4">
-                <div class="card shadow-sm h-100">
+                <div class="card shadow-sm genre-card">
+                    <img src="{% static g.imagen %}" class="genre-image" alt="Portada representativa de {{ g.nombre }}">
                     <div class="card-body">
                         <h3 class="card-title text-primary">{{ g.nombre }}</h3>
                         <p class="card-text">{{ g.descripcion }}</p>
-                        <a href="{% url 'home:ver_genero' g.id %}" class="btn btn-primary">Ver Películas</a>
                     </div>
+                    <a href="{% url 'home:ver_genero' g.id %}" class="btn btn-primary genre-button">Ver Películas</a>
                 </div>
             </div>
         {% endfor %}
