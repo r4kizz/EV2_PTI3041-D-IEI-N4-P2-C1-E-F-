@@ -21,8 +21,8 @@
     {% if peliculas %}
         {% for p in peliculas %}
             <div class="col-md-3 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="{% static p.imagen %}" class="card-img-top" alt="{{ p.nombre }}" style="height: 280px; object-fit: cover;">
+                <div class="card h-100 shadow-sm poster-card">
+                    <img src="{% static p.imagen %}" class="card-img-top poster-image" alt="{{ p.nombre }}">
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ p.nombre }}</h5>
                         <p class="card-text text-muted">Año: {{ p.anio }}</p>
@@ -37,5 +37,4 @@
     {% endif %}
 </div>
 
-<a href="{% url 'home:home' %}" class="btn btn-secondary mt-3">Volver al Inicio</a>
 {% endblock %}
